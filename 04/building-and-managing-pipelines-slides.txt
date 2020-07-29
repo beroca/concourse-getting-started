@@ -83,6 +83,7 @@ https://blog.concourse-ci.org
 https://github.com/concourse/concourse
 https://stackoverflow.com/questions/tagg ed/concourse
 https://concoursetutorial.com
+https://github.com/cf-pub-tools/concourse-training-scripts
    
  Summary
 Setting up a project structure Using pipeline parameters Arranging jobs in a pipeline
