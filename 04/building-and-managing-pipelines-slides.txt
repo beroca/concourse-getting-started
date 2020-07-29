@@ -1,0 +1,91 @@
+ Building and Managing Pipelines
+  Richard Seroter
+VICE PRESIDENT, PIVOTAL @rseroter
+ 
+ Overview
+Setting up a project structure Using pipeline parameters Arranging jobs in a pipeline
+How to trigger pipelines Managing and changing pipelines Monitoring running pipelines Troubleshooting
+Where to learn more
+  
+ Concourse Building Blocks
+ Resource
+ Resource Type
+ Task
+ Job
+ Pipeline
+ Build
+ 
+ `-- ci
+    |-- assets
+    |   |-- manifest-dev.yml
+    |   `-- manifest-prod.yml
+    |-- pipeline.yml
+    |-- scripts
+    |   |-- script1.sh
+    |   |-- script2.sh
+    |   `-- script3.sh
+    `-- tasks
+        |-- task1.yml 
+        `-- task2.yml
+
+* Thoughtfully lay out your Concourse artifacts
+* Create a structure to organize scripts and tasks
+* Consider directories for things like containers, template variables, and deployment manifests
+  
+ About Pipeline Parameters
+ Pull sensitive or environmental values out of the pipeline with parameters
+ Declared parameters are mandatory and there are no default values
+ Set parameters via fly CLI or external file
+ 
+ Demo
+Create placeholders for sensitive values in the pipeline
+Load parameters via the command line Put parameters into a local file
+  
+ Arranging Jobs in a Pipeline
+Jobs are chained together based on the passed attribute
+Can keep jobs from running at the same time using serial_group
+tags
+Associate related jobs using a group designation
+       
+ Mechanisms for Triggering Pipelines
+Dependent resource changes Trigger manually via Dashboard, webhook, or fly CLI
+   
+ Managing and Changing Your Pipelines
+Rename pipelines Pause a pipeline Expose pipelines
+Hide pipelines Order pipelines Version a pipeline
+       
+ Demo
+Manually trigger an individual job
+See a case of when a job triggers another job
+Change our pipeline to run automatically upon resource change
+  
+ Monitoring Running Pipelines
+The Dashboard offers a high density overview of pipeline health
+Nodes emit metrics compatible with Prometheus, Datadog, New Relic and more
+Want to watch metrics for Concourse overall (e.g. builds started), web nodes (e.g. database queries), worker nodes (e.g. disk usage), volumes (e.g. volumes created), and containers (e.g. count).
+   
+ Concourse Troubleshooting
+ What can go wrong?
+Workers out of disk space
+Container limit reached Job doesn’t start
+ Check the environment
+fly containers fly workers fly volumes
+ Check the pipelines
+fly builds
+fly watch fly intercept fly execute
+ 
+ Demo
+Review what the Dashboard shows us Check which containers are running Intercept a recently used container
+  
+ Where to Learn More
+https://concourse-ci.org
+https://blog.concourse-ci.org
+https://github.com/concourse/concourse
+https://stackoverflow.com/questions/tagg ed/concourse
+https://concoursetutorial.com
+   
+ Summary
+Setting up a project structure Using pipeline parameters Arranging jobs in a pipeline
+How to trigger pipelines Managing and changing pipelines Monitoring running pipelines Troubleshooting
+Where to learn more
+  
